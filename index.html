@@ -1,1 +1,31 @@
-<p>Hello!</p>
+<!DOCTYPE html>
+<html lang="en" ng-include="'../index.ejs'">
+  <head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="styles/main.css">
+    <title>Registration Form</title>
+  </head>
+  <body ng-app="myApp">
+    <div class = "container"  ng-controller="myCtrl">
+      <h1>Random Commenting Website</h1>
+      <h2><span>Enter your Name and Comment:</span><br></h2>
+      <section>
+        <form id="form" ng-submit="addComment()">
+          <input id="name" type="text" name="name" placeholder="Name" ng-model="comment.name" autofocus ></br>
+          <input id="comment" type="text" name="comment" placeholder="Comment" ng-model="comment.comment"></br>
+          <input id="button" type="submit" value="Submit"/>
+        </form>
+      </section>
+        <ul>Posted Comments:
+        <li ng-repeat="data in comment">Name: {{data.name}}</br> Comment: {{data.comment}}</br><button class="remove" ng-click="remove(data._id)">Remove</button></li>
+      </ul>
+      <h3>&copy 2016 Jonathan Utsey</h3>
+    </div>
+  </body>
+  <!--Javascript Files-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/myCtrl.js"></script>
+</html>
